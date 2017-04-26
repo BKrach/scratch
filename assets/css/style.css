@@ -1,0 +1,25 @@
+@font-face { font-family: 'horror'; src: url('../fonts/youmurdererbb_reg.ttf');}
+
+*, html, body {
+    margin:0;
+}
+
+body {
+    background-image: url('../images/background.jpg');
+}
+
+h1.titrePrincipal {
+    color: #a7948e;
+    font-family: 'horror';
+    text-align: center;
+    font-size: 180px;
+    font-weight: normal;
+    margin-top: 25px;
+    text-shadow: 9px 5px 6px #231e1a;
+}
+
+canvas {
+    border: 5px solid #322a27;
+    border-radius: 10px;
+    box-shadow: 10px 0px 36px #322a27;
+}
