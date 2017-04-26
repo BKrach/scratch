@@ -36,6 +36,12 @@ SurvivalHorror.Game.prototype = {
         // On crée le personnage
         this.personnage = this.game.add.sprite(positionJoueur[0].x, positionJoueur[0].y, 'personnage');
 
+        // On anime le personnage
+        this.personnage.animations.add('up', [9, 10, 11], 10, true);
+        this.personnage.animations.add('down', [0, 1, 2], 10, true);
+        this.personnage.animations.add('left', [3, 4, 5], 10, true);
+        this.personnage.animations.add('right', [6, 7, 8], 10, true);
+
         // On ajoute le personnage créé dans le moteur physique du jeu
         this.game.physics.arcade.enable(this.personnage);
 
@@ -47,8 +53,6 @@ SurvivalHorror.Game.prototype = {
 
         // On gère la collision entre le personnage et le terrain impassible
         this.game.physics.arcade.collide(this.personnage, this.terrain);
-        // this.game.physics.arcade.enable(this.personnage);
-        // this.personnage.body.collideWorldBounds = true;
 
         // On initialise le score du joueur à 0
         this.score = 0;
@@ -67,6 +71,10 @@ SurvivalHorror.Game.prototype = {
             // On incrémente la vitesse de déplacement du personnage en fonction
             this.personnage.body.velocity.y = -100;
 
+            // On anime le déplacement du personnage
+            this.personnage.animations.play('up');
+            // this.personnage.frame = 11;
+
             // On ne veut pas de déplacement en diagonal
             this.personnage.body.velocity.x = 0;
         }
@@ -74,6 +82,10 @@ SurvivalHorror.Game.prototype = {
         else if(this.cursors.down.isDown) {
             // On incrémente la vitesse de déplacement du personnage en fonction
             this.personnage.body.velocity.y = 100;
+
+            // On anime le déplacement du personnage
+            this.personnage.animations.play('down');
+            // this.personnage.frame = 2;
 
             // On ne veut pas de déplacement en diagonal
             this.personnage.body.velocity.x = 0;
@@ -83,6 +95,10 @@ SurvivalHorror.Game.prototype = {
             // On incrémente la vitesse de déplacement du personnage en fonction
             this.personnage.body.velocity.x = -100;
 
+            // On anime le déplacement du personnage
+            this.personnage.animations.play('left');
+            // this.personnage.frame = 5;
+
             // On ne veut pas de déplacement en diagonal
             this.personnage.body.velocity.y = 0;
         }
@@ -90,6 +106,10 @@ SurvivalHorror.Game.prototype = {
         else if(this.cursors.right.isDown) {
             // On incrémente la vitesse de déplacement du personnage en fonction
             this.personnage.body.velocity.x = 100;
+
+            // On anime le déplacement du personnage
+            this.personnage.animations.play('right');
+            // this.personnage.frame = 8;
 
             // On ne veut pas de déplacement en diagonal
             this.personnage.body.velocity.y = 0;
