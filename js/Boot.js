@@ -25,9 +25,9 @@ SurvivalHorror.Boot.prototype = {
         this.scale.maxWidth = 600;
         this.scale.maxHeight = 600;
 
-        // On centre le jeu horizontalement & verticalement
+        // On centre le jeu horizontalement
         this.scale.pageAlignHorizontally = true;
-        this.scale.pageAlignVertically = true;
+        this.scale.pageAlignVertically = false;
 
         // On utilise le système de physics Arcade de Phaser
         this.game.physics.startSystem(Phaser.Physics.ARCADE);

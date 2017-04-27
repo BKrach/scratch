@@ -24,8 +24,8 @@ SurvivalHorror.Preload.prototype = {
         this.load.image('breakout_spritesheet', '../assets/images/breakout_spritesheet.png');
         this.load.spritesheet('personnage', '../assets/images/personnage.png', 32, 32);
         this.load.spritesheet('ghost', '../assets/images/hollow.png', 32, 32);
+        this.load.spritesheet('arrivee', '../assets/images/arrivee.png', 32, 32);
     },
-
 
     // Cette fonction sert à créer l'état de Preload
     create: function() {

@@ -1,13 +1,13 @@
 // Si l'objet SurvivalHorror n'existe pas on le crée
 var SurvivalHorror = SurvivalHorror || {};
 
-// Déclaration de l'état Gameover
-SurvivalHorror.Gameover = function () {};
+// Déclaration de l'état Victoire
+SurvivalHorror.Victoire = function () {};
 
 // Affichera notre écran de chargement
-SurvivalHorror.Gameover.prototype = {
+SurvivalHorror.Victoire.prototype = {
 
-    // Initialisation de l'état Gameover
+    // Initialisation de l'état Victoire
     create: function() {
 
         // On place un background bien sombre pour se mettre dans l'ambiance
@@ -16,11 +16,22 @@ SurvivalHorror.Gameover.prototype = {
         // On récupère le dernier score dans le localStorage
         let scoreActuel = localStorage.getItem('scoreActuel');
 
-        // On affiche un message annonçant la défaite attendue
-        let message_ligne_1 = 'Game over';
-        let message_ligne_2 = 'Tu as tenu ' + scoreActuel + ' secondes... Navrant.';
-        let message_ligne_3 = 'En plus, t\'as perdu.';
-        let message_ligne_4 = 'Revenir à l\'accueil';
+        // On récupère le record également pour l'enregistrer si besoin
+        let meilleurScore = localStorage.getItem('meilleurScore');
+
+        let message_ligne_2 = '';
+
+        // On met à jour le meilleurScore
+        if ( typeof meilleurScore === 'undefined' || (typeof meilleurScore === 'number' && scoreActuel < meilleurScore)) {
+            localStorage.setItem('meilleurScore', scoreActuel);
+            message_ligne_2 = 'Tu as gagné en ' + scoreActuel + ' secondes... Record battu';
+        } else {
+            message_ligne_2 = 'Tu as gagné en ' + scoreActuel + ' secondes... Bof bof';
+        }
+
+        // On affiche un message annonçant la défaite prévue
+        let message_ligne_1 = 'Bien joué';
+        let message_ligne_3 = 'Revenir à l\'accueil';
 
         // On choisit un style basique
         let style_1 = { font: "28px Roboto", fill: "#fff", align: "center" };
@@ -33,10 +44,7 @@ SurvivalHorror.Gameover.prototype = {
         ajout = this.game.add.text(this.game.width/2, this.game.height/2, message_ligne_2, style_2);
         ajout.anchor.set(0.5);
 
-        ajout = this.game.add.text(this.game.width/2, this.game.height/2 + 30, message_ligne_3, style_2);
-        ajout.anchor.set(0.5);
-
-        ajout = this.game.add.text(this.game.width/2, this.game.height/2 + 100, message_ligne_4, style_1);
+        ajout = this.game.add.text(this.game.width/2, this.game.height/2 + 100, message_ligne_3, style_1);
         ajout.anchor.set(0.5);
     },
 
