@@ -18,12 +18,12 @@ SurvivalHorror.Preload.prototype = {
         this.barreChargement.anchor.setTo(0.5);
         this.load.setPreloadSprite(this.barreChargement);
 
-        // Chargement de la carte
+        // Chargement de la carte et des différents composants
         this.load.tilemap('carte', '../assets/carte.json', null, Phaser.Tilemap.TILED_JSON);
         this.load.image('tilesetHouse', '../assets/images/tilesetHouse.png');
         this.load.image('breakout_spritesheet', '../assets/images/breakout_spritesheet.png');
-        // this.load.image('personnage', '../assets/images/car.png');
         this.load.spritesheet('personnage', '../assets/images/personnage.png', 32, 32);
+        this.load.spritesheet('ghost', '../assets/images/hollow.png', 32, 32);
     },
 
 

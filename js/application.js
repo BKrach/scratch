@@ -8,6 +8,7 @@ SurvivalHorror.game = new Phaser.Game(400, 400, Phaser.AUTO, '');
 SurvivalHorror.game.state.add('Boot', SurvivalHorror.Boot);
 SurvivalHorror.game.state.add('Preload', SurvivalHorror.Preload);
 SurvivalHorror.game.state.add('Welcome', SurvivalHorror.Welcome);
+SurvivalHorror.game.state.add('Gameover', SurvivalHorror.Gameover);
 SurvivalHorror.game.state.add('Game', SurvivalHorror.Game);
 
 // On démarre l'état Boot
